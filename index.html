@@ -3,32 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Changer</title>
+    <title>Dublin Rentals</title>
     <style>
         body {
-            transition: background-color 0.3s ease;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
+        header {
+            background-color: #f5deb3;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .properties {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+        }
+        .property-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
             cursor: pointer;
+            background-color: #fafafa;
+            transition: transform 0.2s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        .property-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .property-card h3 {
+            margin: 0;
+            padding: 0.5rem 1rem;
+            background-color: #f5deb3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #fff;
+            max-width: 600px;
+            width: 100%;
+            padding: 1rem 2rem 2rem 2rem;
+            border-radius: 5px;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .gallery {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        .gallery img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        input, textarea {
+            padding: 0.5rem;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button.submit {
+            background-color: #f5deb3;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1>Click the button to change background color</h1>
-    <button id="color-btn">Change Color</button>
+    <header>
+        <h1>Dublin Rentals</h1>
+    </header>
+    <div class="properties">
+        <div class="property-card" data-target="modal1">
+            <img src="https://source.unsplash.com/featured/?dublin,house" alt="Ranelagh Apartment">
+            <h3>Ranelagh Apartment</h3>
+        </div>
+        <div class="property-card" data-target="modal2">
+            <img src="https://source.unsplash.com/featured/?dublin,home" alt="City Center Loft">
+            <h3>City Center Loft</h3>
+        </div>
+        <div class="property-card" data-target="modal3">
+            <img src="https://source.unsplash.com/featured/?dublin,building" alt="Docklands Condo">
+            <h3>Docklands Condo</h3>
+        </div>
+    </div>
 
-    <script>
-        const colors = ['#f44336', '#2196f3', '#4caf50', '#ffeb3b', '#9c27b0'];
-        let index = 0;
-        document.getElementById('color-btn').addEventListener('click', () => {
-            document.body.style.backgroundColor = colors[index % colors.length];
-            index++;
+    <!-- Modals -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <span class="close" data-close="modal1">&times;</span>
+            <h2>Ranelagh Apartment</h2>
+            <div class="gallery">
+                <img src="https://source.unsplash.com/featured/?apartment,dublin" alt="">
+                <img src="https://source.unsplash.com/featured/?interior,apartment" alt="">
+                <img src="https://source.unsplash.com/featured/?kitchen,apartment" alt="">
+            </div>
+            <p>Cozy 2-bedroom apartment located in the heart of Ranelagh. Steps away from cafes and local shops.</p>
+            <h3>Apply for this property</h3>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <span class="close" data-close="modal2">&times;</span>
+            <h2>City Center Loft</h2>
+            <div class="gallery">
+                <img src="https://source.unsplash.com/featured/?loft,dublin" alt="">
+                <img src="https://source.unsplash.com/featured/?interior,loft" alt="">
+                <img src="https://source.unsplash.com/featured/?city,loft" alt="">
+            </div>
+            <p>Modern loft within walking distance to Trinity College and bustling city life.</p>
+            <h3>Apply for this property</h3>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <span class="close" data-close="modal3">&times;</span>
+            <h2>Docklands Condo</h2>
+            <div class="gallery">
+                <img src="https://source.unsplash.com/featured/?condo,dublin" alt="">
+                <img src="https://source.unsplash.com/featured/?interior,condo" alt="">
+                <img src="https://source.unsplash.com/featured/?view,dublin" alt="">
+            </div>
+            <p>Stylish condo located in the vibrant Docklands area, close to tech companies and the Liffey river.</p>
+            <h3>Apply for this property</h3>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+<script>
+    const cards = document.querySelectorAll('.property-card');
+    const modals = document.querySelectorAll('.modal');
+    const closes = document.querySelectorAll('.close');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            document.getElementById(card.dataset.target).style.display = 'flex';
         });
-    </script>
+    });
+
+    closes.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById(btn.dataset.close).style.display = 'none';
+        });
+    });
+
+    window.addEventListener('click', e => {
+        modals.forEach(modal => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    });
+</script>
 </body>
 </html>
