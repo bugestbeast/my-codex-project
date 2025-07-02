@@ -1,13 +1,10 @@
-# StayFinder Demo
+# StayFinder React Frontend
 
-This project showcases a small property listing page inspired by Airbnb's layout. It includes a navigation menu, a prominent search bar on the homepage, and a responsive grid of sample properties.
+Demo of an Airbnb-style landing page built with React, Vite and Tailwind CSS.
 
-## Running the Server
+## Setup
 
-A tiny Python server is included for local testing. Run the following from the project directory:
-
-```bash
-python3 main.py
-```
-
-Then open [http://localhost:8000](http://localhost:8000) in your browser to see the page.
+1. Install dependencies with `npm install`.
+2. Start the dev server using `npm run dev`.
+3. Build for production with `npm run build`.
+4. Preview the production build using `npm run preview`.
