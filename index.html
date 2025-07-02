@@ -3,212 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dublin Rentals</title>
+    <title>StayFinder</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            background-color: #fff;
             color: #333;
         }
-        header {
-            background-color: #f5deb3;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 1rem 2rem;
-            text-align: center;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        header h1 {
+        nav .brand {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
             margin: 0;
+            padding: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        .hero {
+            padding: 2rem;
+            text-align: center;
+            background-color: #f7f7f7;
+        }
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            padding: 0 1rem;
+            border: none;
+            background-color: #ff385c;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
         }
         .properties {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             padding: 2rem;
         }
-        .property-card {
-            width: 300px;
-            border: 1px solid #ddd;
+        .card {
+            border: 1px solid #eee;
             border-radius: 4px;
             overflow: hidden;
-            cursor: pointer;
-            background-color: #fafafa;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             transition: transform 0.2s ease;
         }
-        .property-card:hover {
+        .card:hover {
             transform: translateY(-5px);
         }
-        .property-card img {
+        .card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
-        .property-card h3 {
-            margin: 0;
-            padding: 0.5rem 1rem;
-            background-color: #f5deb3;
+        .card-content {
+            padding: 0.5rem 1rem 1rem 1rem;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
+        .card-content h3 {
+            margin: 0.5rem 0;
+            font-size: 1rem;
         }
-        .modal-content {
-            background: #fff;
-            max-width: 600px;
-            width: 100%;
-            padding: 1rem 2rem 2rem 2rem;
-            border-radius: 5px;
-            position: relative;
+        .card-content span {
+            color: #777;
+            font-size: 0.9rem;
         }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .gallery {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            margin-bottom: 1rem;
-        }
-        .gallery img {
-            width: 180px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        input, textarea {
-            padding: 0.5rem;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button.submit {
-            background-color: #f5deb3;
-            border: none;
-            padding: 0.5rem;
-            cursor: pointer;
-            font-size: 16px;
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Dublin Rentals</h1>
-    </header>
-    <div class="properties">
-        <div class="property-card" data-target="modal1">
-            <img src="https://source.unsplash.com/featured/?dublin,house" alt="Ranelagh Apartment">
-            <h3>Ranelagh Apartment</h3>
+    <nav>
+        <div class="brand">StayFinder</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <div class="search-bar">
+            <input type="text" placeholder="Search destinations">
+            <button>Search</button>
         </div>
-        <div class="property-card" data-target="modal2">
-            <img src="https://source.unsplash.com/featured/?dublin,home" alt="City Center Loft">
-            <h3>City Center Loft</h3>
-        </div>
-        <div class="property-card" data-target="modal3">
-            <img src="https://source.unsplash.com/featured/?dublin,building" alt="Docklands Condo">
-            <h3>Docklands Condo</h3>
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <div class="modal" id="modal1">
-        <div class="modal-content">
-            <span class="close" data-close="modal1">&times;</span>
-            <h2>Ranelagh Apartment</h2>
-            <div class="gallery">
-                <img src="https://source.unsplash.com/featured/?apartment,dublin" alt="">
-                <img src="https://source.unsplash.com/featured/?interior,apartment" alt="">
-                <img src="https://source.unsplash.com/featured/?kitchen,apartment" alt="">
+    </section>
+    <section class="properties">
+        <div class="card">
+            <img src="https://source.unsplash.com/featured/?apartment" alt="Apartment">
+            <div class="card-content">
+                <h3>Modern Apartment</h3>
+                <span>Dublin, Ireland</span>
             </div>
-            <p>Cozy 2-bedroom apartment located in the heart of Ranelagh. Steps away from cafes and local shops.</p>
-            <h3>Apply for this property</h3>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message"></textarea>
-                <button type="submit" class="submit">Submit</button>
-            </form>
         </div>
-    </div>
-
-    <div class="modal" id="modal2">
-        <div class="modal-content">
-            <span class="close" data-close="modal2">&times;</span>
-            <h2>City Center Loft</h2>
-            <div class="gallery">
-                <img src="https://source.unsplash.com/featured/?loft,dublin" alt="">
-                <img src="https://source.unsplash.com/featured/?interior,loft" alt="">
-                <img src="https://source.unsplash.com/featured/?city,loft" alt="">
+        <div class="card">
+            <img src="https://source.unsplash.com/featured/?house" alt="House">
+            <div class="card-content">
+                <h3>Cozy House</h3>
+                <span>Cork, Ireland</span>
             </div>
-            <p>Modern loft within walking distance to Trinity College and bustling city life.</p>
-            <h3>Apply for this property</h3>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message"></textarea>
-                <button type="submit" class="submit">Submit</button>
-            </form>
         </div>
-    </div>
-
-    <div class="modal" id="modal3">
-        <div class="modal-content">
-            <span class="close" data-close="modal3">&times;</span>
-            <h2>Docklands Condo</h2>
-            <div class="gallery">
-                <img src="https://source.unsplash.com/featured/?condo,dublin" alt="">
-                <img src="https://source.unsplash.com/featured/?interior,condo" alt="">
-                <img src="https://source.unsplash.com/featured/?view,dublin" alt="">
+        <div class="card">
+            <img src="https://source.unsplash.com/featured/?loft" alt="Loft">
+            <div class="card-content">
+                <h3>Stylish Loft</h3>
+                <span>Galway, Ireland</span>
             </div>
-            <p>Stylish condo located in the vibrant Docklands area, close to tech companies and the Liffey river.</p>
-            <h3>Apply for this property</h3>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message"></textarea>
-                <button type="submit" class="submit">Submit</button>
-            </form>
         </div>
-    </div>
-
-<script>
-    const cards = document.querySelectorAll('.property-card');
-    const modals = document.querySelectorAll('.modal');
-    const closes = document.querySelectorAll('.close');
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            document.getElementById(card.dataset.target).style.display = 'flex';
-        });
-    });
-
-    closes.forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.getElementById(btn.dataset.close).style.display = 'none';
-        });
-    });
-
-    window.addEventListener('click', e => {
-        modals.forEach(modal => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-    });
-</script>
+    </section>
 </body>
 </html>
