@@ -20,7 +20,7 @@ export const popularLondon: Listing[] = [
     priceEur: 49,
     nights: 2,
     rating: 4.97,
-    img: 'https://source.unsplash.com/random/255x210?apartment'
+    img: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=255&h=210'
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ export const popularLondon: Listing[] = [
     priceEur: 59,
     nights: 2,
     rating: 4.8,
-    img: 'https://source.unsplash.com/random/255x211?apartment'
+    img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=255&h=211'
   },
   {
     id: '3',
@@ -42,7 +42,7 @@ export const popularLondon: Listing[] = [
     priceEur: 79,
     nights: 2,
     rating: 4.9,
-    img: 'https://source.unsplash.com/random/255x212?apartment'
+    img: 'https://images.unsplash.com/photo-1505691723518-36a8a26516a3?auto=format&fit=crop&w=255&h=212'
   },
   {
     id: '4',
@@ -53,7 +53,7 @@ export const popularLondon: Listing[] = [
     priceEur: 89,
     nights: 2,
     rating: 5,
-    img: 'https://source.unsplash.com/random/255x213?apartment'
+    img: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=255&h=213'
   },
   {
     id: '5',
@@ -64,7 +64,7 @@ export const popularLondon: Listing[] = [
     priceEur: 69,
     nights: 2,
     rating: 4.95,
-    img: 'https://source.unsplash.com/random/255x214?apartment'
+    img: 'https://images.unsplash.com/photo-1560448070-bb1a7e2481c1?auto=format&fit=crop&w=255&h=214'
   },
   {
     id: '6',
@@ -75,7 +75,7 @@ export const popularLondon: Listing[] = [
     priceEur: 99,
     nights: 2,
     rating: 4.85,
-    img: 'https://source.unsplash.com/random/255x215?apartment'
+    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=255&h=215'
   },
   {
     id: '7',
@@ -86,7 +86,7 @@ export const popularLondon: Listing[] = [
     priceEur: 129,
     nights: 2,
     rating: 4.99,
-    img: 'https://source.unsplash.com/random/255x216?apartment'
+    img: 'https://images.unsplash.com/photo-1582268611959-379b7a6c8550?auto=format&fit=crop&w=255&h=216'
   }
 ];
 
@@ -100,7 +100,7 @@ export const availableParis: Listing[] = [
     priceEur: 55,
     nights: 2,
     rating: 4.9,
-    img: 'https://source.unsplash.com/random/255x217?apartment'
+    img: 'https://images.unsplash.com/photo-1468252534325-b76c1d9582ab?auto=format&fit=crop&w=255&h=217'
   },
   {
     id: 'p2',
@@ -111,7 +111,7 @@ export const availableParis: Listing[] = [
     priceEur: 65,
     nights: 2,
     rating: 4.8,
-    img: 'https://source.unsplash.com/random/255x218?apartment'
+    img: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=255&h=218'
   },
   {
     id: 'p3',
@@ -122,7 +122,7 @@ export const availableParis: Listing[] = [
     priceEur: 75,
     nights: 2,
     rating: 4.88,
-    img: 'https://source.unsplash.com/random/255x219?apartment'
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=255&h=219'
   },
   {
     id: 'p4',
@@ -133,7 +133,7 @@ export const availableParis: Listing[] = [
     priceEur: 85,
     nights: 2,
     rating: 4.97,
-    img: 'https://source.unsplash.com/random/255x220?apartment'
+    img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=255&h=220'
   },
   {
     id: 'p5',
@@ -144,7 +144,7 @@ export const availableParis: Listing[] = [
     priceEur: 95,
     nights: 2,
     rating: 4.94,
-    img: 'https://source.unsplash.com/random/255x221?apartment'
+    img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=255&h=221'
   },
   {
     id: 'p6',
@@ -155,7 +155,7 @@ export const availableParis: Listing[] = [
     priceEur: 58,
     nights: 2,
     rating: 4.82,
-    img: 'https://source.unsplash.com/random/255x222?apartment'
+    img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=255&h=222'
   },
   {
     id: 'p7',
@@ -166,7 +166,7 @@ export const availableParis: Listing[] = [
     priceEur: 70,
     nights: 2,
     rating: 4.86,
-    img: 'https://source.unsplash.com/random/255x223?apartment'
+    img: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=255&h=223'
   },
   {
     id: 'p8',
@@ -177,6 +177,6 @@ export const availableParis: Listing[] = [
     priceEur: 80,
     nights: 2,
     rating: 4.91,
-    img: 'https://source.unsplash.com/random/255x224?apartment'
+    img: 'https://images.unsplash.com/photo-1559599239-0f81a63948c0?auto=format&fit=crop&w=255&h=224'
   }
 ];
